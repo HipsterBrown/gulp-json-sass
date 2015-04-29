@@ -79,7 +79,12 @@ module.exports = function(opt) {
         }
 
         if (typeof val !== 'object') {
-          cb('$' + path + key + ': ' + val + opt.eol);
+          var colorVar = '$' + path + key;
+          cb(colorVar + ': ' + val + opt.eol);
+          cb('.' + path + key + '{ color: ' + colorVar + '; }');
+          cb('.bg-' + path + key + '{ background-color: ' + colorVar + '; }');
+          cb('.bc-' + path + key + '{ border-color: ' + colorVar + '; }');
+          cb('');
         } else {
           loadVariablesRecursive(val, path + key + opt.delim, cb);
         }

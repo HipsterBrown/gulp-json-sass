@@ -46,7 +46,7 @@ function runTests(t, opt) {
       })
     .pipe(through2.obj(function runJsonSassTests(file, encoding, done) {
       if (!file.path.match('stub')) {
-        t.equal(file.contents.toString().split('\n').length, 6, 'test json should result in a 6 line file');
+        t.equal(file.contents.toString().split('\n').length, 30, 'test json should result in a 6 line file');
       } else {
         t.equal(file.contents.toString(), fileObj.contents.toString(), 'non-json files should not be modified (content)');
         t.equal(file.path, fileObj.path, 'non-json files should not be modified (file path)');
