@@ -79,7 +79,7 @@ module.exports = function(opt) {
         }
 
         if (typeof val !== 'object') {
-          var name = path.split("-").length > 1 && path.split("-")[1].length ? key + path : path.split("-")[0];
+          var name = path.split("-").length > 1 && key.length ? path + key : path.split("-")[0];
           var colorVar = '$' + name;
           cb(colorVar + ': ' + val + opt.eol);
           cb('.' + name + '{ color: ' + colorVar + '; }');

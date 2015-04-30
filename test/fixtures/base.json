@@ -1,5 +1,9 @@
 {
   "aString" : "3px",
+  "blue" : {
+    "" : "blue",
+    "primary" : "#fffff"
+  },
   "aValue" : 123,
   "anObject" : {
     "subVal1" : 1,
