@@ -82,9 +82,9 @@ module.exports = function(opt) {
           var name = path.split("-").length > 1 && key.length ? path + key : path.split("-")[0];
           var colorVar = '$' + name;
           cb(colorVar + ': ' + val + opt.eol);
-          cb('.' + name + '{ color: ' + colorVar + '; }');
-          cb('.bg-' + name + '{ background-color: ' + colorVar + '; }');
-          cb('.bc-' + name + '{ border-color: ' + colorVar + '; }');
+          cb('.' + name + ' { color: ' + colorVar + '; }');
+          cb('.bg-' + name + ' { background-color: ' + colorVar + '; }');
+          cb('.bc-' + name + ' { border-color: ' + colorVar + '; }');
           cb('');
         } else {
           loadVariablesRecursive(val, path + key + opt.delim, cb);
