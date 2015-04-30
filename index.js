@@ -79,11 +79,12 @@ module.exports = function(opt) {
         }
 
         if (typeof val !== 'object') {
-          var colorVar = '$' + path + key;
+          var name = path.split("-").length > 1 && path.split("-")[1].length ? key + path : path.split("-")[0];
+          var colorVar = '$' + name;
           cb(colorVar + ': ' + val + opt.eol);
-          cb('.' + path + key + '{ color: ' + colorVar + '; }');
-          cb('.bg-' + path + key + '{ background-color: ' + colorVar + '; }');
-          cb('.bc-' + path + key + '{ border-color: ' + colorVar + '; }');
+          cb('.' + name + '{ color: ' + colorVar + '; }');
+          cb('.bg-' + name + '{ background-color: ' + colorVar + '; }');
+          cb('.bc-' + name + '{ border-color: ' + colorVar + '; }');
           cb('');
         } else {
           loadVariablesRecursive(val, path + key + opt.delim, cb);
